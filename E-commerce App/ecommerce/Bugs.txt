@@ -1,0 +1,56 @@
+Dependencies {
+    npm i react-router-dom@5.3.0
+    npm install -S react-router-bootstrap@rr-v4
+
+}
+
+5. ml-auto to ms-auto (Align to right on navBar)
+
+13. Install http-proxy-middleware in frontend node with
+
+npm install http-proxy-middleware --save
+
+Then create a file inside src "src/setupProxy.js"
+
+Then copy this in there.
+
+"const { createProxyMiddleware } = require('http-proxy-middleware');
+ 
+ 
+module.exports = function(app) {
+ 
+ app.use(
+ 
+ '/api',
+ 
+ createProxyMiddleware({
+ 
+ target: 'http://localhost:5000',
+ 
+ changeOrigin: true,
+ 
+ })
+ 
+ );
+
+ app.use(
+ 
+ '/uploads',
+ 
+ createProxyMiddleware({
+ 
+ target: 'http://localhost:5000',
+ 
+ changeOrigin: true,
+ 
+ })
+ 
+ );
+ 
+};"
+
+
+
+
+
+Servers {run npm start in root for backend and npm start in frontend}, OR {npm run dev, in root folder}
